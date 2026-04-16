@@ -33,3 +33,7 @@
 
 ## Done when
 Open app → read a lesson → read exercise steps → take notes → mark complete → navigate to next lesson. All working without errors.
+
+## Finish & Align (Pass 1.1)
+- [x] content_loader.py — explicit UTF-8 encoding + with-open pattern
+- [x] project_context.md — remove stale SQLite reference, document localStorage as actual stack

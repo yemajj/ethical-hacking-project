@@ -80,12 +80,12 @@ Do NOT add:
 - advanced infrastructure
 
 ## Preferred Tech Direction
-Current likely stack:
+Current stack:
 - Flask
 - HTML/CSS/JS
-- SQLite
+- localStorage (progress tracking and notes — no server-side DB for this MVP)
 
-This can be adjusted if there is a clearly better lightweight option, but prioritize simplicity and maintainability.
+SQLite is a possible Phase 4 addition for multi-device sync. Do not introduce it before then.
 
 ## Build Philosophy
 Use vertical slices.
