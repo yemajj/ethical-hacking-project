@@ -1,0 +1,63 @@
+id: ls
+title: "ls — List Directory Contents"
+order: 2
+description: "See what files and folders are inside your current directory."
+prev_lesson: pwd
+next_lesson: cd
+body: |
+  ## What is `ls`?
+
+  Once you know *where* you are (`pwd`), the next question is: *what's here?* The `ls` command lists the files and directories in your current location.
+
+  ```
+  $ ls
+  Documents  Downloads  notes.txt  script.sh
+  ```
+
+  ## Useful flags
+
+  Flags modify how a command behaves. You add them with a `-` followed by a letter.
+
+  **`ls -l` — long format**
+
+  Shows extra detail: permissions, owner, size, and date modified.
+
+  ```
+  $ ls -l
+  drwxr-xr-x  2 user user 4096 Apr 10 09:00 Documents
+  -rw-r--r--  1 user user  142 Apr 10 08:45 notes.txt
+  ```
+
+  The first column is the **permissions string** — you'll learn to read this in a later lesson.
+
+  **`ls -a` — show hidden files**
+
+  Files that start with a `.` are hidden by default. `-a` reveals them.
+
+  ```
+  $ ls -a
+  .  ..  .bashrc  .ssh  Documents  notes.txt
+  ```
+
+  `.` means "this directory" and `..` means "the parent directory". Both are always present.
+
+  **Combine flags: `ls -la`**
+
+  ```
+  $ ls -la
+  total 32
+  drwxr-xr-x  4 user user 4096 Apr 10 09:00 .
+  drwxr-xr-x 12 root root 4096 Apr  5 14:00 ..
+  -rw-r--r--  1 user user  220 Apr  5 14:00 .bashrc
+  drwxr-xr-x  2 user user 4096 Apr 10 09:00 Documents
+  ```
+
+  ## Why it matters
+
+  `ls` is one of the most-used commands in any terminal session. In security work, listing directory contents helps you understand what's on a system, spot unexpected files, and verify that your own scripts and tools are where you expect them to be.
+key_points:
+  - "ls lists files and directories in your current location"
+  - "ls -l shows detailed information including permissions"
+  - "ls -a shows hidden files (those starting with a dot)"
+  - "Combine flags: ls -la for both"
+  - "Files starting with . are hidden by default"

@@ -1,0 +1,18 @@
+id: pwd_exercise
+lesson_id: pwd
+title: "Practice: pwd"
+steps:
+  - prompt: "You just opened a terminal. Where are you? Run the command that shows your current location."
+    expected: "pwd"
+    output: "/home/user"
+    explanation: "pwd printed your current directory. You're in /home/user — a typical home folder on Linux."
+
+  - prompt: "A config file was recently edited somewhere under /etc. You've navigated there. Confirm your location."
+    expected: "pwd"
+    output: "/etc"
+    explanation: "Good. Always confirm your location before running commands — especially when working with system files."
+
+  - prompt: "You're deep in the filesystem at /var/log/nginx. Run pwd to verify."
+    expected: "pwd"
+    output: "/var/log/nginx"
+    explanation: "The path shows three levels: var → log → nginx. Each / separates a directory level."

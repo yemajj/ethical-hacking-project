@@ -1,0 +1,75 @@
+id: cd
+title: "cd — Change Directory"
+order: 3
+description: "Move between directories in the filesystem."
+prev_lesson: ls
+next_lesson: null
+body: |
+  ## What is `cd`?
+
+  `cd` stands for **Change Directory**. It moves you from your current location to a different folder.
+
+  ```
+  $ pwd
+  /home/user
+
+  $ cd Documents
+
+  $ pwd
+  /home/user/Documents
+  ```
+
+  ## Absolute vs relative paths
+
+  There are two ways to specify where you want to go:
+
+  **Absolute path** — starts from root `/`. Works from anywhere.
+
+  ```
+  $ cd /etc/nginx
+  $ pwd
+  /etc/nginx
+  ```
+
+  **Relative path** — relative to where you already are. Shorter, but context-dependent.
+
+  ```
+  $ pwd
+  /home/user
+
+  $ cd Documents/projects
+  $ pwd
+  /home/user/Documents/projects
+  ```
+
+  ## Special shortcuts
+
+  | Shortcut | Meaning |
+  |---|---|
+  | `cd ..` | Go up one directory (to the parent) |
+  | `cd ~` | Go to your home directory |
+  | `cd -` | Go back to the previous directory |
+  | `cd /` | Go to the root of the filesystem |
+
+  ```
+  $ pwd
+  /home/user/Documents
+
+  $ cd ..
+  $ pwd
+  /home/user
+
+  $ cd ~
+  $ pwd
+  /home/user
+  ```
+
+  ## Why it matters
+
+  Navigation is the foundation of everything you do in a terminal. In security work, you constantly move between directories — checking logs in `/var/log`, inspecting configs in `/etc`, and working in your own project folders. Learning to navigate quickly and confidently is essential.
+key_points:
+  - "cd changes your current working directory"
+  - "Absolute paths start with / and work from anywhere"
+  - "Relative paths are based on where you currently are"
+  - "cd .. moves up one level to the parent directory"
+  - "cd ~ takes you to your home directory from anywhere"

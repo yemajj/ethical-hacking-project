@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CyberEdu{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar">
+      <a href="{{ url_for('main.home') }}" class="nav-logo">CyberEdu</a>
+      <span class="nav-tagline">Terminal Foundations</span>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>CyberEdu &mdash; Learn by doing.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/progress.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

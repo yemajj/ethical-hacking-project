@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ lesson.title }} — CyberEdu{% endblock %}
+
+{% block content %}
+<div class="page-lesson">
+
+  <div class="lesson-header">
+    <a href="{{ url_for('main.home') }}" class="breadcrumb">&larr; Back to lessons</a>
+    <h1>{{ lesson.title }}</h1>
+    <p class="lesson-desc">{{ lesson.description }}</p>
+  </div>
+
+  <div class="lesson-body">
+    {{ lesson.body | markdown | safe }}
+  </div>
+
+  {% if lesson.key_points %}
+  <div class="key-points">
+    <h2>Key Points</h2>
+    <ul>
+      {% for point in lesson.key_points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="lesson-actions">
+    <a href="{{ url_for('main.exercise', phase_id=phase_id, module_id=module_id, exercise_id=lesson.id ~ '_exercise') }}"
+       class="btn btn-primary">Practice &rarr;</a>
+
+    <button class="btn btn-complete" id="complete-btn"
+            onclick="toggleComplete('{{ lesson.id }}')">
+      Mark Complete
+    </button>
+  </div>
+
+  <div class="notes-section">
+    <h2>My Notes</h2>
+    <textarea id="notes-area"
+              placeholder="Write your notes here... they are saved automatically."
+              oninput="saveNote('{{ lesson.id }}', this.value)"></textarea>
+  </div>
+
+  <div class="lesson-nav">
+    {% if lesson.prev_lesson %}
+    <a href="{{ url_for('main.lesson', phase_id=phase_id, module_id=module_id, lesson_id=lesson.prev_lesson) }}"
+       class="btn btn-nav">&larr; Previous</a>
+    {% else %}
+    <span></span>
+    {% endif %}
+
+    {% if lesson.next_lesson %}
+    <a href="{{ url_for('main.lesson', phase_id=phase_id, module_id=module_id, lesson_id=lesson.next_lesson) }}"
+       class="btn btn-nav">Next &rarr;</a>
+    {% endif %}
+  </div>
+
+</div>
+
+<script>
+  const lessonId = '{{ lesson.id }}';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Load saved note
+    const saved = loadNote(lessonId);
+    if (saved) document.getElementById('notes-area').value = saved;
+
+    // Update complete button state
+    updateCompleteBtn(lessonId);
+  });
+
+  function toggleComplete(id) {
+    if (isComplete(id)) {
+      unmarkComplete(id);
+    } else {
+      markComplete(id);
+    }
+    updateCompleteBtn(id);
+  }
+
+  function updateCompleteBtn(id) {
+    const btn = document.getElementById('complete-btn');
+    if (isComplete(id)) {
+      btn.textContent = '&#10003; Completed';
+      btn.classList.add('is-complete');
+    } else {
+      btn.textContent = 'Mark Complete';
+      btn.classList.remove('is-complete');
+    }
+  }
+</script>
+{% endblock %}

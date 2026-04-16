@@ -1,0 +1,6 @@
+id: phase1
+title: "Phase 1: Terminal Foundations"
+order: 1
+description: "Master the command line basics every security professional needs."
+modules:
+  - terminal-foundations

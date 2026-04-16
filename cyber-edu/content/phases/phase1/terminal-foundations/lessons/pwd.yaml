@@ -1,0 +1,48 @@
+id: pwd
+title: "pwd — Print Working Directory"
+order: 1
+description: "Learn how to find your current location in the filesystem."
+prev_lesson: null
+next_lesson: ls
+body: |
+  ## What is `pwd`?
+
+  When you open a terminal, you're always "standing" somewhere in the filesystem — a specific folder (also called a **directory**). The `pwd` command tells you exactly where that is.
+
+  `pwd` stands for **Print Working Directory**. It prints the path of your current location.
+
+  ## Running it
+
+  Just type `pwd` and press Enter — no arguments needed:
+
+  ```
+  $ pwd
+  /home/user
+  ```
+
+  The output is a **path** — a trail of folders separated by `/` (forward slashes) that shows where you are, starting from the very top of the filesystem (`/`).
+
+  ## Why it matters
+
+  As you learn to navigate the terminal, it's easy to lose track of where you are. Running `pwd` is the quickest way to get your bearings before running other commands. Security professionals check their working directory constantly to make sure commands run in the right place.
+
+  ## The filesystem is a tree
+
+  Think of the filesystem like a tree of folders:
+
+  ```
+  /
+  ├── home/
+  │   └── user/
+  │       ├── Documents/
+  │       └── Downloads/
+  ├── etc/
+  └── var/
+  ```
+
+  `/` is the **root** — the top of the entire tree. Every path starts from there.
+key_points:
+  - "pwd stands for Print Working Directory"
+  - "It shows your current location as an absolute path"
+  - "Paths start with / (the root of the filesystem)"
+  - "No arguments needed — just type pwd and press Enter"

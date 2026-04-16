@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Home — CyberEdu{% endblock %}
+
+{% block content %}
+<div class="page-home">
+  <section class="hero">
+    <h1>Learn Cybersecurity <span class="accent">Hands-On</span></h1>
+    <p class="hero-sub">Beginner-friendly lessons and exercises, starting from the terminal up.</p>
+  </section>
+
+  {% for phase in phases %}
+  <section class="phase-card">
+    <h2>{{ phase.title }}</h2>
+    <p class="phase-desc">{{ phase.description }}</p>
+
+    {% for module in phase.modules_data %}
+    <div class="module-block">
+      <h3>{{ module.title }}</h3>
+      <p class="module-desc">{{ module.description }}</p>
+      <ul class="lesson-list">
+        {% for lesson in module.lessons %}
+        <li class="lesson-item">
+          <a href="{{ url_for('main.lesson', phase_id=phase.id, module_id=module.id, lesson_id=lesson.id) }}"
+             class="lesson-link"
+             data-lesson-id="{{ lesson.id }}">
+            {{ lesson.title }}
+          </a>
+          <span class="complete-badge" id="badge-{{ lesson.id }}" style="display:none;">&#10003;</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </section>
+  {% endfor %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.lesson-link').forEach(function (link) {
+      const id = link.dataset.lessonId;
+      if (isComplete(id)) {
+        link.classList.add('completed');
+        const badge = document.getElementById('badge-' + id);
+        if (badge) badge.style.display = 'inline';
+      }
+    });
+  });
+</script>
+{% endblock %}

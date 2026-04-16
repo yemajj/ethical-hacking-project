@@ -1,0 +1,10 @@
+id: terminal-foundations
+title: "Terminal Foundations"
+description: "Navigate the filesystem, list files, and move between directories."
+lessons:
+  - id: pwd
+    title: "pwd — Print Working Directory"
+  - id: ls
+    title: "ls — List Directory Contents"
+  - id: cd
+    title: "cd — Change Directory"

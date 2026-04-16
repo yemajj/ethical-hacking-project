@@ -1,0 +1,11 @@
+.claude/
+.cursor/
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+instance/
+*.db
+.DS_Store

@@ -1,0 +1,28 @@
+id: cd_exercise
+lesson_id: cd
+title: "Practice: cd"
+steps:
+  - prompt: "You're in /home/user. Navigate into the Documents folder using a relative path."
+    expected: "cd Documents"
+    output: ""
+    explanation: "cd with a relative path moves you into a subfolder. No output means it worked — the terminal only prints errors."
+
+  - prompt: "Good. Now go up one level back to /home/user."
+    expected: "cd .."
+    output: ""
+    explanation: ".. always refers to the parent directory. cd .. is one of the most-used navigation commands."
+
+  - prompt: "Navigate directly to /etc using an absolute path."
+    expected: "cd /etc"
+    output: ""
+    explanation: "Absolute paths start with / and work from any location. You jumped straight to /etc regardless of where you were."
+
+  - prompt: "Go back to your home directory using the shortcut."
+    expected: "cd ~"
+    output: ""
+    explanation: "~ is a shortcut for your home directory. cd ~ takes you home from anywhere in the filesystem."
+
+  - prompt: "Navigate to /var/log using an absolute path."
+    expected: "cd /var/log"
+    output: ""
+    explanation: "/var/log is where Linux systems store log files. Security analysts spend a lot of time here looking for suspicious activity."

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exercise.title }} — CyberEdu{% endblock %}
+
+{% block content %}
+<div class="page-exercise">
+
+  <div class="exercise-header">
+    <a href="{{ url_for('main.lesson', phase_id=phase_id, module_id=module_id, lesson_id=exercise.lesson_id) }}"
+       class="breadcrumb">&larr; Back to lesson</a>
+    <h1>{{ exercise.title }}</h1>
+    <p class="exercise-intro">Work through each step below. Try the command yourself in your own terminal.</p>
+  </div>
+
+  <ol class="step-list">
+    {% for step in exercise.steps %}
+    <li class="step-item">
+      <div class="step-prompt">{{ step.prompt }}</div>
+      <div class="step-command">
+        <span class="step-label">Command:</span>
+        <code class="command-code">{{ step.expected }}</code>
+      </div>
+      <div class="step-output">
+        <span class="step-label">Output:</span>
+        <pre class="output-pre">{{ step.output }}</pre>
+      </div>
+      {% if step.explanation %}
+      <div class="step-explanation">{{ step.explanation }}</div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+
+  <div class="exercise-footer">
+    <a href="{{ url_for('main.lesson', phase_id=phase_id, module_id=module_id, lesson_id=exercise.lesson_id) }}"
+       class="btn btn-nav">&larr; Back to lesson</a>
+  </div>
+
+</div>
+{% endblock %}

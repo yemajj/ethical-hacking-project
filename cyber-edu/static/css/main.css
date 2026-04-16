@@ -1,0 +1,428 @@
+/* ============================================================
+   CyberEdu — main.css
+   Dark theme, clean and readable. No framework.
+   ============================================================ */
+
+:root {
+  --bg:        #0f1117;
+  --bg-card:   #1a1d27;
+  --bg-code:   #12151e;
+  --border:    #2a2d3a;
+  --text:      #d4d8e8;
+  --text-muted:#7a7f9a;
+  --accent:    #4af09a;
+  --accent-dim:#2a9060;
+  --link:      #6ab0f5;
+  --danger:    #f06a6a;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-body: 'Segoe UI', system-ui, sans-serif;
+  --radius:    6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- Header ---- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+.nav-bar {
+  max-width: 860px;
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-tagline {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Main ---- */
+.main-content {
+  flex: 1;
+  padding: 2rem 2rem 4rem;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ---- Shared layout wrapper ---- */
+.page-home, .page-lesson, .page-exercise {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 3rem 0 2rem;
+}
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.accent { color: var(--accent); }
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ---- Phase card ---- */
+.phase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+.phase-card h2 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.phase-desc, .module-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- Module block ---- */
+.module-block h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* ---- Lesson list ---- */
+.lesson-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.lesson-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.lesson-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.lesson-link.completed {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+.complete-badge {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+.breadcrumb:hover { color: var(--link); text-decoration: none; }
+
+/* ---- Lesson page ---- */
+.lesson-header {
+  padding: 2rem 0 1.5rem;
+}
+.lesson-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+.lesson-desc {
+  color: var(--text-muted);
+}
+
+.lesson-body {
+  margin: 1.5rem 0;
+  line-height: 1.8;
+}
+.lesson-body h2, .lesson-body h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--accent);
+}
+.lesson-body p { margin-bottom: 0.9rem; }
+.lesson-body ul, .lesson-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.9rem;
+}
+.lesson-body code {
+  font-family: var(--font-mono);
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: var(--accent);
+}
+.lesson-body pre {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.lesson-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+/* ---- Key points ---- */
+.key-points {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.key-points h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.key-points ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.key-points li::before {
+  content: '→ ';
+  color: var(--accent);
+}
+
+/* ---- Lesson actions ---- */
+.lesson-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #0f1117;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background: #5affaa;
+  text-decoration: none;
+}
+.btn-complete {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+.btn-complete:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-complete.is-complete {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(74, 240, 154, 0.08);
+}
+.btn-nav {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-nav:hover {
+  border-color: var(--link);
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* ---- Notes ---- */
+.notes-section {
+  margin: 2rem 0;
+}
+.notes-section h2 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+#notes-area {
+  width: 100%;
+  min-height: 140px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+#notes-area:focus {
+  outline: none;
+  border-color: var(--accent-dim);
+}
+
+/* ---- Lesson nav ---- */
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---- Exercise page ---- */
+.exercise-header {
+  padding: 2rem 0 1.5rem;
+}
+.exercise-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+.exercise-intro {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  counter-reset: step-counter;
+}
+.step-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  counter-increment: step-counter;
+  position: relative;
+}
+.step-item::before {
+  content: counter(step-counter);
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  background: var(--accent);
+  color: #0f1117;
+  font-weight: 700;
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-prompt {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.step-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.command-code {
+  font-family: var(--font-mono);
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.output-pre {
+  font-family: var(--font-mono);
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.step-explanation {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.exercise-footer {
+  margin: 2rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
